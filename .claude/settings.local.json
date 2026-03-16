@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -lh /c/code/crimeshoppers/*.html /c/code/crimeshoppers/css/styles.css /c/code/crimeshoppers/js/main.js)",
+      "Bash(grep -h 'href=\\\\|src=' /c/code/crimeshoppers/*.html)",
+      "Bash(grep -h 'href=\"\"\"\"[^h#]' /c/code/crimeshoppers/*.html)"
+    ]
+  }
+}

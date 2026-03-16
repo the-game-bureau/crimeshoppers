@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crime Shoppers — See Something? Buy Something! Premium true crime merchandise. T-shirts, hoodies, mugs, and more." />
+  <meta name="keywords" content="true crime merch, crime shoppers, true crime gifts, murderino, serial killer shirts, crime podcast merchandise" />
+  <meta name="author" content="Crime Shoppers" />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Crime Shoppers — See Something? Buy Something!" />
+  <meta property="og:description" content="Premium true crime merch for the obsessed. T-shirts, hoodies, mugs & accessories with darkly funny designs." />
+  <meta property="og:url" content="https://crimeshoppers.com/" />
+  <meta property="og:site_name" content="Crime Shoppers" />
+  <meta property="og:image" content="https://crimeshoppers.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Crime Shoppers — See Something? Buy Something!" />
+  <meta name="twitter:description" content="Premium true crime merch for the obsessed." />
+  <meta name="twitter:image" content="https://crimeshoppers.com/og-image.jpg" />
+
+  <title>Crime Shoppers — See Something? Buy Something!</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Crime Shoppers",
+    "description": "Premium true crime merchandise for the obsessed.",
+    "url": "https://crimeshoppers.com",
+    "logo": "https://crimeshoppers.com/logo.png",
+    "sameAs": [
+      "https://twitter.com/crimeshoppers",
+      "https://instagram.com/crimeshoppers",
+      "https://tiktok.com/@crimeshoppers"
+    ],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://crimeshoppers.com/shop.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================================
+       NAVBAR
+       ======================================================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="Crime Shoppers Home">
+        <span class="brand-icon">🔍</span>
+        CRIME SHOPPERS
+      </a>
+
+      <ul class="navbar-nav" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <button class="cart-btn" id="cart-open-btn" aria-label="Open cart">
+          🛒
+          <span class="cart-count" id="cart-count-nav" aria-live="polite">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- ========================================================
+       HERO SECTION
+       ======================================================== -->
+  <section class="hero" aria-label="Hero section">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          🚨 &nbsp;New Arrivals Just Dropped — Check the Evidence
+        </div>
+        <h1>
+          SEE SOMETHING?
+          <span>BUY SOMETHING!</span>
+        </h1>
+        <p class="hero-sub">
+          Premium true crime merch for the obsessed. Wear your unhealthy hobby proudly — no lawyer required.
+        </p>
+        <div class="hero-actions">
+          <a href="shop.html" class="btn btn-primary btn-lg">
+            🔎 Browse the Evidence
+          </a>
+          <a href="about.html" class="btn btn-secondary btn-lg">
+            Our Origin Story
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>12+</strong>
+            <span>Products</span>
+          </div>
+          <div class="hero-stat">
+            <strong>5,000+</strong>
+            <span>Obsessed Fans</span>
+          </div>
+          <div class="hero-stat">
+            <strong>100%</strong>
+            <span>Alibi Not Included</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-decoration" aria-hidden="true">
+      <div class="hero-badge"></div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       FEATURED PRODUCTS
+       ======================================================== -->
+  <section class="section-pad" id="featured" aria-labelledby="featured-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">⚠ Hot Off the Press</span>
+        <h2 id="featured-heading">FEATURED SUSPECTS</h2>
+        <p>Our most-wanted items. Grab yours before they disappear like evidence.</p>
+      </div>
+
+      <div class="products-grid" id="featured-products" role="list">
+        <!-- Products rendered by JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;" class="fade-in">
+        <a href="shop.html" class="btn btn-secondary btn-lg">
+          View All 12 Products &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       WHY CRIME SHOPPERS
+       ======================================================== -->
+  <section class="section-pad" style="background: var(--bg-secondary);" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">🔐 The Dossier</span>
+        <h2 id="why-heading">WHY CRIME SHOPPERS?</h2>
+        <p>Because regular merch stores don't have enough dark humor. We've done the research (and lawyered up).</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card fade-in fade-in-delay-1">
+          <span class="feature-icon">🚚</span>
+          <h3>Free Shipping Over $50</h3>
+          <p>No getaway car needed. Orders over $50 ship free, straight to your door — no questions asked. Unless you count USPS tracking.</p>
+        </div>
+        <div class="feature-card fade-in fade-in-delay-2">
+          <span class="feature-icon">🖨️</span>
+          <h3>Print-on-Demand Quality</h3>
+          <p>Every item printed to order. No warehouses full of unsold "Probably Innocent" hoodies gathering forensic evidence.</p>
+        </div>
+        <div class="feature-card fade-in fade-in-delay-3">
+          <span class="feature-icon">🌍</span>
+          <h3>Ships Worldwide</h3>
+          <p>We deliver to 150+ countries. Because true crime obsession knows no borders. International orders ship in 10–15 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       NEWSLETTER
+       ======================================================== -->
+  <section class="newsletter-section" aria-labelledby="newsletter-heading">
+    <div class="container">
+      <div class="newsletter-inner fade-in">
+        <span class="section-label">📬 Dispatch</span>
+        <h2 id="newsletter-heading">STAY OUT OF JAIL...</h2>
+        <p>...but stay in the loop. Get early access to new drops, exclusive deals, and cold case discounts. No spam — we have ethics (barely).</p>
+
+        <form class="newsletter-form" id="newsletter-form" novalidate aria-label="Newsletter signup">
+          <input
+            type="email"
+            name="email"
+            placeholder="your@email.com"
+            required
+            aria-label="Email address"
+          />
+          <button type="submit" class="btn btn-primary">
+            Subscribe
+          </button>
+        </form>
+
+        <div class="newsletter-success" id="newsletter-success" role="alert" aria-live="polite">
+          ✅ &nbsp;You're in! Check your inbox... and your alibi.
+        </div>
+
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; margin-bottom: 0;">
+          No spam, unsubscribe any time. We're criminals, not monsters.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <span class="footer-brand">🔍 CRIME SHOPPERS</span>
+          <p class="footer-tagline">
+            Premium true crime merch for the unhealthily obsessed. We're not criminals — we just dress like people who could be.
+          </p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+            <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+          </div>
+          <div class="footer-badges" aria-label="Partner stores">
+            <a href="integrations.html" class="badge-store">🛍️ Shopify</a>
+            <a href="integrations.html" class="badge-store">📦 Amazon</a>
+            <a href="integrations.html" class="badge-store">🖨️ Printful</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?filter=T-Shirts">T-Shirts</a></li>
+            <li><a href="shop.html?filter=Hoodies">Hoodies</a></li>
+            <li><a href="shop.html?filter=Mugs">Mugs</a></li>
+            <li><a href="shop.html?filter=Accessories">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns Policy</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="#">Affiliate Program</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Crime Shoppers. All rights reserved. No crimes were committed in the making of this website (probably).</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       CART SIDEBAR
+       ======================================================== -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+
+  <aside class="cart-sidebar" id="cart-sidebar" role="complementary" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+
+    <div class="cart-empty" id="cart-empty" role="status" aria-live="polite">
+      <span class="empty-icon">🛒</span>
+      <p>Your cart is empty.<br />Add some suspicious items.</p>
+      <a href="shop.html" class="btn btn-secondary btn-sm" onclick="closeCart()">
+        Browse the Evidence
+      </a>
+    </div>
+
+    <div id="cart-content" style="display:none; flex-direction:column; flex:1; overflow:hidden;">
+      <div class="cart-items" id="cart-items" role="list" aria-label="Cart items">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button class="btn btn-primary" style="width:100%;" id="checkout-btn">
+          Proceed to Checkout →
+        </button>
+        <p class="cart-note">
+          Secure checkout. Taxes calculated at checkout.<br />
+          Free shipping on orders over $50.
+        </p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

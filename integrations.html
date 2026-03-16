@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Crime Shoppers Integration Guide — How to connect Shopify, Amazon, Printful, Printify, Redbubble, and TeePublic to your true crime merch store." />
+  <meta name="keywords" content="shopify integration, printful setup, amazon merch on demand, printify guide, redbubble store, teepublic seller" />
+  <meta name="author" content="Crime Shoppers" />
+  <meta name="theme-color" content="#0d0d0d" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Integration Guide — Crime Shoppers" />
+  <meta property="og:description" content="How to connect Shopify, Amazon, Printful, Printify, Redbubble & TeePublic to your true crime merch store." />
+  <meta property="og:url" content="https://crimeshoppers.com/integrations.html" />
+  <meta property="og:site_name" content="Crime Shoppers" />
+  <meta property="og:image" content="https://crimeshoppers.com/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Integration Guide — Crime Shoppers" />
+  <meta name="twitter:description" content="How to connect all the major merch platforms." />
+  <meta name="twitter:image" content="https://crimeshoppers.com/og-image.jpg" />
+
+  <title>Integration Guide — Crime Shoppers</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* Additional styles for integration page */
+    .integration-hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .integration-hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .integration-hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .platform-summary {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+
+    .platform-summary:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .platform-summary-icon {
+      font-size: 2rem;
+      width: 52px;
+      height: 52px;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .platform-summary-text strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .platform-summary-text span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .diff-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+    }
+
+    .diff-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      background: var(--bg-secondary);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .diff-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .diff-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .diff-table tr:hover td {
+      background: rgba(255, 215, 0, 0.03);
+    }
+
+    .diff-table .check { color: #4caf50; }
+    .diff-table .cross { color: var(--accent-red); }
+
+    .callout {
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin: 1.5rem 0;
+    }
+
+    .callout-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .callout p {
+      font-size: 0.875rem;
+      margin: 0;
+      color: var(--text-secondary);
+    }
+
+    .callout strong {
+      color: var(--accent-yellow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================
+       NAVBAR
+       ======================================================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" aria-label="Crime Shoppers Home">
+        <span class="brand-icon">🔍</span>
+        CRIME SHOPPERS
+      </a>
+
+      <ul class="navbar-nav" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <button class="cart-btn" id="cart-open-btn" aria-label="Open cart">
+          🛒
+          <span class="cart-count" id="cart-count-nav" aria-live="polite">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- ========================================================
+       PAGE HERO
+       ======================================================== -->
+  <section class="page-hero" aria-label="Integrations page header">
+    <div class="container">
+      <span class="section-label">⚙️ The Operations Manual</span>
+      <h1>INTEGRATION GUIDE</h1>
+      <p>Connect Crime Shoppers to your preferred sales and fulfillment platforms. From Shopify to Amazon — here's how the evidence chain works.</p>
+
+      <!-- Platform quick links -->
+      <div class="integration-hero-grid">
+        <a href="#shopify" class="platform-summary">
+          <div class="platform-summary-icon">🛍️</div>
+          <div class="platform-summary-text">
+            <strong>Shopify</strong>
+            <span>Buy Buttons & full storefront</span>
+          </div>
+        </a>
+        <a href="#amazon" class="platform-summary">
+          <div class="platform-summary-icon">📦</div>
+          <div class="platform-summary-text">
+            <strong>Amazon</strong>
+            <span>Merch on Demand + Affiliates</span>
+          </div>
+        </a>
+        <a href="#printful" class="platform-summary">
+          <div class="platform-summary-icon">🖨️</div>
+          <div class="platform-summary-text">
+            <strong>Printful</strong>
+            <span>Print-on-demand fulfillment</span>
+          </div>
+        </a>
+        <a href="#printify" class="platform-summary">
+          <div class="platform-summary-icon">🎨</div>
+          <div class="platform-summary-text">
+            <strong>Printify</strong>
+            <span>Network of print providers</span>
+          </div>
+        </a>
+        <a href="#redbubble" class="platform-summary">
+          <div class="platform-summary-icon">🔴</div>
+          <div class="platform-summary-text">
+            <strong>Redbubble</strong>
+            <span>Artist marketplace</span>
+          </div>
+        </a>
+        <a href="#teepublic" class="platform-summary">
+          <div class="platform-summary-icon">👕</div>
+          <div class="platform-summary-text">
+            <strong>TeePublic</strong>
+            <span>T-shirt focused marketplace</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       COMPARISON TABLE
+       ======================================================== -->
+  <section class="section-pad" aria-labelledby="compare-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">📊 The Evidence Board</span>
+        <h2 id="compare-heading">PLATFORM COMPARISON</h2>
+        <p>Choose your weapon. Each platform has different strengths for selling true crime merch.</p>
+      </div>
+
+      <div class="fade-in" style="overflow-x: auto;">
+        <table class="diff-table" aria-label="Platform comparison">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Your Own Store</th>
+              <th>Free to Start</th>
+              <th>Custom Domain</th>
+              <th>API Access</th>
+              <th>Fulfillment</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: var(--text-primary);">🛍️ Shopify</strong></td>
+              <td class="check">✓</td>
+              <td class="cross">✗ (from $29/mo)</td>
+              <td class="check">✓</td>
+              <td class="check">✓</td>
+              <td>Via Printful/Printify</td>
+              <td>Full control, brand building</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text-primary);">📦 Amazon Merch</strong></td>
+              <td class="cross">✗</td>
+              <td class="check">✓</td>
+              <td class="cross">✗</td>
+              <td class="cross">✗ (limited)</td>
+              <td>Amazon handles it</td>
+              <td>Massive reach, passive income</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text-primary);">🖨️ Printful</strong></td>
+              <td class="cross">✗ (fulfillment only)</td>
+              <td class="check">✓</td>
+              <td>Via your store</td>
+              <td class="check">✓</td>
+              <td>Printful ships for you</td>
+              <td>Quality print-on-demand</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text-primary);">🎨 Printify</strong></td>
+              <td class="cross">✗ (fulfillment only)</td>
+              <td class="check">✓</td>
+              <td>Via your store</td>
+              <td class="check">✓</td>
+              <td>Multiple providers</td>
+              <td>Cost efficiency, variety</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text-primary);">🔴 Redbubble</strong></td>
+              <td class="cross">✗</td>
+              <td class="check">✓</td>
+              <td class="cross">✗</td>
+              <td class="cross">✗</td>
+              <td>Redbubble handles it</td>
+              <td>Artist discovery, marketplace</td>
+            </tr>
+            <tr>
+              <td><strong style="color: var(--text-primary);">👕 TeePublic</strong></td>
+              <td class="cross">✗</td>
+              <td class="check">✓</td>
+              <td class="cross">✗</td>
+              <td class="cross">✗</td>
+              <td>TeePublic handles it</td>
+              <td>T-shirt focused, sales</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       SHOPIFY
+       ======================================================== -->
+  <section class="section-pad" id="shopify" aria-labelledby="shopify-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label" style="color: #96bf48;">🛍️ Shopify</span>
+        <h2 id="shopify-heading">SHOPIFY INTEGRATION</h2>
+        <p>The gold standard for e-commerce. Connect Shopify Buy Buttons or build a full storefront.</p>
+      </div>
+
+      <div class="integration-grid">
+
+        <!-- Option 1: Buy Buttons -->
+        <div class="integration-card shopify fade-in">
+          <span class="integration-logo">🔘</span>
+          <h3>Buy Button Channel</h3>
+          <p>Embed Shopify's Buy Button directly into Crime Shoppers pages. Your inventory lives in Shopify; the button shows up on your site.</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Create a Shopify store at <strong style="color: var(--accent-yellow);">shopify.com</strong></li>
+            <li><span class="step-num">2</span>Add your 12 products with variants (size, color)</li>
+            <li><span class="step-num">3</span>Go to <em>Sales Channels &rarr; Buy Button</em> in admin</li>
+            <li><span class="step-num">4</span>Create a Buy Button for each product or a collection</li>
+            <li><span class="step-num">5</span>Customize colors to match (#FFD700 primary, #0d0d0d background)</li>
+            <li><span class="step-num">6</span>Copy the embed code and paste into your HTML</li>
+            <li><span class="step-num">7</span>Replace placeholder product cards with embed divs</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">💡</span>
+            <p><strong>Pro Tip:</strong> Use the Storefront API token (not the Admin API key) in your buy button embed. Keep tokens server-side in production.</p>
+          </div>
+
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Cost: Free Buy Button channel (requires Shopify plan from $29/mo)</p>
+        </div>
+
+        <!-- Option 2: Embed Code Example -->
+        <div class="integration-card shopify fade-in fade-in-delay-1">
+          <span class="integration-logo">💻</span>
+          <h3>Embed Code Structure</h3>
+          <p>Here's the structure of a Shopify Buy Button embed. Replace the placeholder values with your actual Shopify credentials.</p>
+
+          <div class="code-snippet" aria-label="Shopify embed code example">
+            <span class="comment"><!-- Add this div where you want the button --></span><br />
+            <span class="tag">&lt;div</span> <span class="attr">id</span>=<span class="val">"product-component-1234567"</span><span class="tag">&gt;&lt;/div&gt;</span><br /><br />
+            <span class="comment"><!-- Shopify Buy Button JS (add before &lt;/body&gt;) --></span><br />
+            <span class="tag">&lt;script&gt;</span><br />
+            &nbsp;&nbsp;<span class="attr">var</span> client = ShopifyBuy.buildClient({<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;domain: <span class="val">'your-store.myshopify.com'</span>,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;storefrontAccessToken: <span class="val">'YOUR_TOKEN_HERE'</span><br />
+            &nbsp;&nbsp;});<br />
+            &nbsp;&nbsp;ShopifyBuy.UI.onReady(client).then(<span class="attr">function</span>(ui) {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;ui.createComponent(<span class="val">'product'</span>, {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: <span class="val">'YOUR_PRODUCT_ID'</span>,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node: document.getElementById(<span class="val">'product-component-1234567'</span>),<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;options: { <span class="comment">/* customize styles here */</span> }<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br />
+            &nbsp;&nbsp;});<br />
+            <span class="tag">&lt;/script&gt;</span>
+          </div>
+
+          <div class="callout">
+            <span class="callout-icon">⚠️</span>
+            <p><strong>Security Note:</strong> The Storefront Access Token is safe to expose in client-side JavaScript. Never embed your Admin API key.</p>
+          </div>
+
+          <a href="https://shopify.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+            Create Shopify Store →
+          </a>
+        </div>
+
+        <!-- Option 3: Full Storefront -->
+        <div class="integration-card shopify fade-in fade-in-delay-2">
+          <span class="integration-logo">🏪</span>
+          <h3>Full Shopify Storefront</h3>
+          <p>Migrate completely to Shopify for the most powerful checkout, abandoned cart recovery, and analytics.</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Create your Shopify store and add products</li>
+            <li><span class="step-num">2</span>Install a dark theme (Dawn with customizations, or purchase a premium dark theme)</li>
+            <li><span class="step-num">3</span>Connect Printful/Printify via their Shopify app for fulfillment</li>
+            <li><span class="step-num">4</span>Set up your custom domain (crimeshoppers.com)</li>
+            <li><span class="step-num">5</span>Configure tax and shipping settings</li>
+            <li><span class="step-num">6</span>Add Shopify Payments or Stripe for checkout</li>
+            <li><span class="step-num">7</span>Point your domain's DNS to Shopify servers</li>
+          </ol>
+
+          <p style="font-size: 0.8rem; color: var(--text-muted);">
+            Cost: Basic $29/mo • Shopify $79/mo • Advanced $299/mo
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       AMAZON
+       ======================================================== -->
+  <section class="section-pad" id="amazon" style="background: var(--bg-secondary);" aria-labelledby="amazon-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label" style="color: #FF9900;">📦 Amazon</span>
+        <h2 id="amazon-heading">AMAZON INTEGRATION</h2>
+        <p>Two powerful ways to leverage the world's largest retailer: Merch on Demand and the Affiliate Program.</p>
+      </div>
+
+      <div class="integration-grid">
+
+        <!-- Merch on Demand -->
+        <div class="integration-card amazon fade-in" style="--amazon-color: #FF9900;">
+          <span class="integration-logo">📦</span>
+          <h3>Merch on Demand</h3>
+          <p>Amazon prints, ships, and handles customer service. You just upload designs and collect royalties. The laziest path to passive income.</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Apply at <strong style="color: var(--accent-yellow);">merch.amazon.com</strong> (waitlist applies)</li>
+            <li><span class="step-num">2</span>Once approved, upload your designs as PNG (300 DPI, transparent background)</li>
+            <li><span class="step-num">3</span>Choose product types: T-shirts, hoodies, phone cases, etc.</li>
+            <li><span class="step-num">4</span>Set your royalty price (Amazon sets the base cost)</li>
+            <li><span class="step-num">5</span>Write SEO-optimized titles and bullets (include "true crime", "murderino", etc.)</li>
+            <li><span class="step-num">6</span>Amazon lists and sells the products — you get paid monthly</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">💰</span>
+            <p><strong>Royalty example:</strong> A $19.99 T-shirt might earn you ~$3.50–$5.00 per sale. Low per-unit, but scales massively with Amazon's traffic.</p>
+          </div>
+        </div>
+
+        <!-- Affiliate Program -->
+        <div class="integration-card amazon fade-in fade-in-delay-1">
+          <span class="integration-logo">🔗</span>
+          <h3>Amazon Associates (Affiliates)</h3>
+          <p>Link to Amazon products (true crime books, documentaries, accessories) and earn 1–10% commission on every sale referred from your site.</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Sign up at <strong style="color: var(--accent-yellow);">affiliate-program.amazon.com</strong></li>
+            <li><span class="step-num">2</span>Get your unique affiliate tracking ID</li>
+            <li><span class="step-num">3</span>Add <code style="background: #111; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">?tag=YOURID-20</code> to any Amazon product URL</li>
+            <li><span class="step-num">4</span>Add affiliate links to blog posts, product descriptions, newsletters</li>
+            <li><span class="step-num">5</span>Include the required disclosure: "As an Amazon Associate I earn from qualifying purchases"</li>
+          </ol>
+
+          <div class="code-snippet" aria-label="Amazon affiliate link example">
+            <span class="comment">&lt;!-- Example affiliate link structure --&gt;</span><br />
+            <span class="tag">&lt;a</span><br />
+            &nbsp;&nbsp;<span class="attr">href</span>=<span class="val">"https://amazon.com/dp/ASIN?tag=crimeshop-20"</span><br />
+            &nbsp;&nbsp;<span class="attr">target</span>=<span class="val">"_blank"</span><br />
+            &nbsp;&nbsp;<span class="attr">rel</span>=<span class="val">"noopener sponsored"</span><br />
+            <span class="tag">&gt;</span>View on Amazon<span class="tag">&lt;/a&gt;</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       PRINTFUL
+       ======================================================== -->
+  <section class="section-pad" id="printful" aria-labelledby="printful-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label" style="color: #00b3e6;">🖨️ Printful</span>
+        <h2 id="printful-heading">PRINTFUL INTEGRATION</h2>
+        <p>The most popular print-on-demand fulfillment service. High quality, global warehouses, and a solid API.</p>
+      </div>
+
+      <div class="integration-grid">
+
+        <div class="integration-card printful fade-in">
+          <span class="integration-logo">🖨️</span>
+          <h3>Printful + Shopify</h3>
+          <p>The most recommended combo. Printful handles all production and shipping automatically when an order comes through Shopify.</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Create a free account at <strong style="color: var(--accent-yellow);">printful.com</strong></li>
+            <li><span class="step-num">2</span>Connect your Shopify store via the Printful Shopify app</li>
+            <li><span class="step-num">3</span>Create products in Printful (T-shirts, hoodies, mugs, etc.)</li>
+            <li><span class="step-num">4</span>Upload your Crime Shoppers designs (min. 150 DPI for apparel)</li>
+            <li><span class="step-num">5</span>Sync products to Shopify — they appear as regular products</li>
+            <li><span class="step-num">6</span>When a customer orders, Printful auto-fulfills and ships</li>
+            <li><span class="step-num">7</span>You're charged production cost; you keep the markup</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">📐</span>
+            <p><strong>Design specs:</strong> T-shirts — 4500 x 5400px PNG. Mugs — 2700 x 1350px. All designs should be 300 DPI with transparent background.</p>
+          </div>
+        </div>
+
+        <div class="integration-card printful fade-in fade-in-delay-1">
+          <span class="integration-logo">⚡</span>
+          <h3>Printful API</h3>
+          <p>For advanced integrations, use Printful's REST API to automate order creation, product sync, and fulfillment status updates.</p>
+
+          <div class="code-snippet" aria-label="Printful API example">
+            <span class="comment">// Printful API — Create Order (Node.js example)</span><br />
+            <span class="attr">const</span> response = <span class="attr">await</span> fetch(<br />
+            &nbsp;&nbsp;<span class="val">'https://api.printful.com/orders'</span>,<br />
+            &nbsp;&nbsp;{<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;method: <span class="val">'POST'</span>,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;headers: {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'Authorization'</span>: <span class="val">`Bearer ${PRINTFUL_KEY}`</span>,<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'Content-Type'</span>: <span class="val">'application/json'</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;},<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify({<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;recipient: { name, address1, city, country_code },<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items: [{ sync_variant_id, quantity }]<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;})<br />
+            &nbsp;&nbsp;}<br />
+            );
+          </div>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Get API key from Printful Dashboard &rarr; Settings &rarr; API</li>
+            <li><span class="step-num">2</span>Store key securely in environment variables (never expose client-side)</li>
+            <li><span class="step-num">3</span>Use <code style="background: #111; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GET /products</code> to fetch your catalog</li>
+            <li><span class="step-num">4</span>Use <code style="background: #111; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">POST /orders</code> to submit orders for fulfillment</li>
+          </ol>
+
+          <a href="https://developers.printful.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+            Printful API Docs →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       PRINTIFY
+       ======================================================== -->
+  <section class="section-pad" id="printify" style="background: var(--bg-secondary);" aria-labelledby="printify-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label" style="color: #00c878;">🎨 Printify</span>
+        <h2 id="printify-heading">PRINTIFY INTEGRATION</h2>
+        <p>A network of 90+ print providers worldwide. More options, competitive pricing, and a powerful API.</p>
+      </div>
+
+      <div class="integration-grid">
+
+        <div class="integration-card printify fade-in">
+          <span class="integration-logo">🎨</span>
+          <h3>Printify Setup</h3>
+          <p>Printify connects to Shopify, Etsy, WooCommerce, and more. Choose from 90+ print providers for the best price/quality combination.</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Sign up free at <strong style="color: var(--accent-yellow);">printify.com</strong></li>
+            <li><span class="step-num">2</span>Connect your store (Shopify, Etsy, WooCommerce, etc.)</li>
+            <li><span class="step-num">3</span>Browse the product catalog — pick items for each of your 12 SKUs</li>
+            <li><span class="step-num">4</span>For each product, choose a print provider (compare price, location, reviews)</li>
+            <li><span class="step-num">5</span>Upload your designs using the Printify mockup generator</li>
+            <li><span class="step-num">6</span>Set retail prices and publish to your store</li>
+            <li><span class="step-num">7</span>Orders auto-route to your chosen print provider</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">💡</span>
+            <p><strong>Cost advantage:</strong> Printify often undercuts Printful on base prices by 20–30%, especially if you use providers in the US for US orders and EU for EU orders.</p>
+          </div>
+        </div>
+
+        <div class="integration-card printify fade-in fade-in-delay-1">
+          <span class="integration-logo">🔌</span>
+          <h3>Printify API</h3>
+          <p>Automate product creation, order management, and shipping updates using Printify's REST API.</p>
+
+          <div class="code-snippet" aria-label="Printify API example">
+            <span class="comment">// Printify API — Get Products</span><br />
+            <span class="attr">const</span> res = <span class="attr">await</span> fetch(<br />
+            &nbsp;&nbsp;<span class="val">'https://api.printify.com/v1/shops/{shop_id}/products.json'</span>,<br />
+            &nbsp;&nbsp;{<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;headers: {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="val">'Authorization'</span>: <span class="val">`Bearer ${PRINTIFY_TOKEN}`</span><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+            &nbsp;&nbsp;}<br />
+            );<br />
+            <span class="attr">const</span> products = <span class="attr">await</span> res.json();<br /><br />
+            <span class="comment">// Webhook for order status updates:</span><br />
+            <span class="comment">// POST https://api.printify.com/v1/shops/{id}/webhooks</span>
+          </div>
+
+          <div class="callout">
+            <span class="callout-icon">🔔</span>
+            <p><strong>Webhooks:</strong> Register webhooks to get real-time notifications when orders are fulfilled, so you can update customers automatically.</p>
+          </div>
+
+          <a href="https://developers.printify.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+            Printify API Docs →
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       REDBUBBLE & TEEPUBLIC
+       ======================================================== -->
+  <section class="section-pad" id="redbubble" aria-labelledby="marketplace-heading">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">🎪 Artist Marketplaces</span>
+        <h2 id="marketplace-heading">REDBUBBLE &amp; TEEPUBLIC</h2>
+        <p>No store setup needed. Upload designs, earn royalties. Perfect for getting started with zero overhead.</p>
+      </div>
+
+      <div class="integration-grid">
+
+        <!-- Redbubble -->
+        <div class="integration-card redbubble fade-in" id="redbubble-card">
+          <span class="integration-logo">🔴</span>
+          <h3>Redbubble</h3>
+          <p>
+            The largest artist marketplace. Upload once, sell on 70+ products including T-shirts, stickers, phone cases, pillows, and more. Perfect for the Crime Shoppers product lineup.
+          </p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Create an artist account at <strong style="color: var(--accent-yellow);">redbubble.com</strong></li>
+            <li><span class="step-num">2</span>Upload your designs as PNG/TIFF, min. 2400 x 3200px</li>
+            <li><span class="step-num">3</span>Tag your work with: "true crime", "murderino", "forensic files", "crime podcast", "serial killer", etc.</li>
+            <li><span class="step-num">4</span>Enable all product types that fit your designs</li>
+            <li><span class="step-num">5</span>Set your markup percentage (default 20%, can adjust per product)</li>
+            <li><span class="step-num">6</span>Share your Redbubble profile link from your Crime Shoppers site</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">🏷️</span>
+            <p><strong>SEO matters:</strong> Redbubble is heavily search-driven. Use specific tags like "SSDGM", "murderino", "true crime junkie", "forensic files fan" for discoverability.</p>
+          </div>
+
+          <a href="https://redbubble.com/sell" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+            Start Selling on Redbubble →
+          </a>
+        </div>
+
+        <!-- TeePublic -->
+        <div class="integration-card teepublic fade-in fade-in-delay-1" id="teepublic">
+          <span class="integration-logo">👕</span>
+          <h3>TeePublic</h3>
+          <p>
+            Owned by Redbubble but operates separately. Known for frequent sales and a strong T-shirt and apparel focus. Great for the Crime Shoppers clothing lineup.
+          </p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span>Create a designer account at <strong style="color: var(--accent-yellow);">teepublic.com</strong></li>
+            <li><span class="step-num">2</span>Upload designs — same files as Redbubble work here</li>
+            <li><span class="step-num">3</span>TeePublic frequently runs sitewide sales (designs sell at $14–$20)</li>
+            <li><span class="step-num">4</span>Add tags and choose design categories (Humor, Dark Humor, Crime)</li>
+            <li><span class="step-num">5</span>Promote your TeePublic store URL on social media and your site</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">💰</span>
+            <p><strong>Earnings:</strong> Standard T-shirts earn ~$4 at base price, more during regular-priced windows. Sitewide sales reduce your cut but massively increase volume.</p>
+          </div>
+
+          <a href="https://teepublic.com/become-a-seller" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm">
+            Start Selling on TeePublic →
+          </a>
+        </div>
+
+        <!-- Strategy card -->
+        <div class="integration-card fade-in fade-in-delay-2" style="border-color: rgba(255, 215, 0, 0.2);">
+          <span class="integration-logo">🗺️</span>
+          <h3>Recommended Strategy</h3>
+          <p>For Crime Shoppers, we recommend a multi-channel approach:</p>
+
+          <ol class="integration-steps">
+            <li><span class="step-num">1</span><strong style="color: var(--text-primary);">Primary:</strong> Shopify + Printful for full brand control and highest margins</li>
+            <li><span class="step-num">2</span><strong style="color: var(--text-primary);">Passive:</strong> Amazon Merch on Demand for marketplace reach</li>
+            <li><span class="step-num">3</span><strong style="color: var(--text-primary);">Discovery:</strong> Redbubble + TeePublic for organic discovery at zero cost</li>
+            <li><span class="step-num">4</span><strong style="color: var(--text-primary);">Affiliate:</strong> Amazon Associates for recommended true crime books/content</li>
+          </ol>
+
+          <div class="callout">
+            <span class="callout-icon">🎯</span>
+            <p><strong>The goal:</strong> Use Redbubble/TeePublic to build audience, then funnel fans to your Shopify store for exclusive products and better margins.</p>
+          </div>
+
+          <a href="contact.html" class="btn btn-primary btn-sm">
+            Need Help? Contact Us
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       CTA
+       ======================================================== -->
+  <section class="newsletter-section" aria-labelledby="integrations-cta-heading">
+    <div class="container">
+      <div class="newsletter-inner fade-in">
+        <span class="section-label">🚀 Ready to Launch</span>
+        <h2 id="integrations-cta-heading">TIME TO GO LIVE</h2>
+        <p>You've got the plan, you've got the merch ideas — now you just need to pull the trigger. (Figuratively. Always figuratively.)</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
+          <a href="shop.html" class="btn btn-primary btn-lg">
+            🛍️ View the Shop
+          </a>
+          <a href="contact.html" class="btn btn-secondary btn-lg">
+            Ask a Question
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crime tape divider -->
+  <div class="crime-tape" aria-hidden="true"></div>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <span class="footer-brand">🔍 CRIME SHOPPERS</span>
+          <p class="footer-tagline">
+            Premium true crime merch for the unhealthily obsessed. We're not criminals — we just dress like people who could be.
+          </p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Twitter/X">𝕏</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+            <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+            <a href="#" class="social-link" aria-label="YouTube">▶️</a>
+          </div>
+          <div class="footer-badges" aria-label="Partner stores">
+            <a href="integrations.html" class="badge-store">🛍️ Shopify</a>
+            <a href="integrations.html" class="badge-store">📦 Amazon</a>
+            <a href="integrations.html" class="badge-store">🖨️ Printful</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html">T-Shirts</a></li>
+            <li><a href="shop.html">Hoodies</a></li>
+            <li><a href="shop.html">Mugs</a></li>
+            <li><a href="shop.html">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns Policy</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="integrations.html">Integrations</a></li>
+            <li><a href="#">Affiliate Program</a></li>
+            <li><a href="#">Press Kit</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Crime Shoppers. All rights reserved. No crimes were committed in the making of this website (probably).</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cart-overlay" aria-hidden="true"></div>
+  <aside class="cart-sidebar" id="cart-sidebar" role="complementary" aria-label="Shopping cart">
+    <div class="cart-header">
+      <h3>🛒 Your Cart</h3>
+      <button class="cart-close" id="cart-close" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-empty" id="cart-empty" role="status" aria-live="polite">
+      <span class="empty-icon">🛒</span>
+      <p>Your cart is empty.<br />Add some suspicious items.</p>
+      <a href="shop.html" class="btn btn-secondary btn-sm">Browse the Evidence</a>
+    </div>
+    <div id="cart-content" style="display:none; flex-direction:column; flex:1; overflow:hidden;">
+      <div class="cart-items" id="cart-items" role="list" aria-label="Cart items"></div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button class="btn btn-primary" style="width:100%;" id="checkout-btn">
+          Proceed to Checkout →
+        </button>
+        <p class="cart-note">Secure checkout. Free shipping over $50.</p>
+      </div>
+    </div>
+  </aside>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
