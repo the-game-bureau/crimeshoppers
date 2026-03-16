@@ -1,0 +1,152 @@
+<footer class="cs-footer" role="contentinfo">
+  <div class="cs-container">
+    <div class="cs-footer-grid">
+
+      <!-- Column 1: Brand -->
+      <div class="cs-footer-brand">
+        <a href="{{ routes.root_url }}" class="cs-logo" aria-label="{{ section.settings.brand_name | default: 'CRIME SHOPPERS' }} - Home">
+          <span class="cs-logo-icon">🔍</span>{{ section.settings.brand_name | default: 'CRIME SHOPPERS' }}
+        </a>
+        <p class="cs-footer-tagline">
+          {{ section.settings.tagline | default: "See Something? Buy Something! Your one-stop shop for true crime obsessives, justice seekers, and cold case connoisseurs." }}
+        </p>
+
+        <!-- Social Links -->
+        <div class="cs-social-links">
+          {%- if section.settings.social_twitter != blank -%}
+            <a href="{{ section.settings.social_twitter }}" class="cs-social-link" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">𝕏</a>
+          {%- endif -%}
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" class="cs-social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📸</a>
+          {%- endif -%}
+          {%- if section.settings.social_facebook != blank -%}
+            <a href="{{ section.settings.social_facebook }}" class="cs-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+          {%- endif -%}
+          {%- if section.settings.social_tiktok != blank -%}
+            <a href="{{ section.settings.social_tiktok }}" class="cs-social-link" aria-label="TikTok" target="_blank" rel="noopener noreferrer">♪</a>
+          {%- endif -%}
+          {%- if section.settings.social_youtube != blank -%}
+            <a href="{{ section.settings.social_youtube }}" class="cs-social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+          {%- endif -%}
+        </div>
+
+        <!-- Platform Badges -->
+        <div class="cs-platform-badges">
+          <span class="cs-badge">Shopify</span>
+          <span class="cs-badge">Amazon</span>
+          <span class="cs-badge">Printful</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Shop -->
+      <div class="cs-footer-col">
+        <h4>Shop</h4>
+        <nav class="cs-footer-links" aria-label="Shop navigation">
+          <a href="{{ routes.all_products_collection_url }}">All Products</a>
+          <a href="/collections/t-shirts">T-Shirts</a>
+          <a href="/collections/hoodies">Hoodies</a>
+          <a href="/collections/mugs">Mugs</a>
+          <a href="/collections/accessories">Accessories</a>
+          <a href="/collections/new-arrivals">New Arrivals</a>
+        </nav>
+      </div>
+
+      <!-- Column 3: Help -->
+      <div class="cs-footer-col">
+        <h4>Help</h4>
+        <nav class="cs-footer-links" aria-label="Help navigation">
+          <a href="/pages/contact">Contact Us</a>
+          <a href="/pages/shipping">Shipping Info</a>
+          <a href="/pages/returns">Returns & Exchanges</a>
+          <a href="/pages/faq">FAQ</a>
+          <a href="/pages/size-guide">Size Guide</a>
+          <a href="/account/orders">Track Order</a>
+        </nav>
+      </div>
+
+      <!-- Column 4: Company -->
+      <div class="cs-footer-col">
+        <h4>Company</h4>
+        <nav class="cs-footer-links" aria-label="Company navigation">
+          <a href="/pages/about">About Us</a>
+          <a href="/pages/integrations">Integrations</a>
+          <a href="/pages/affiliate">Affiliate Program</a>
+          <a href="/pages/press">Press Kit</a>
+          <a href="/blogs/news">Blog</a>
+          <a href="/pages/careers">Careers</a>
+        </nav>
+      </div>
+
+    </div><!-- /.cs-footer-grid -->
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="cs-footer-bottom">
+    <div class="cs-container" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;">
+      <p class="cs-footer-copyright">
+        &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+      </p>
+      <nav class="cs-footer-legal" aria-label="Legal navigation">
+        <a href="{{ routes.root_url }}policies/privacy-policy">Privacy Policy</a>
+        <a href="{{ routes.root_url }}policies/terms-of-service">Terms of Service</a>
+        <a href="{{ routes.root_url }}policies/refund-policy">Refund Policy</a>
+        <a href="{{ routes.root_url }}policies/shipping-policy">Shipping Policy</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section-footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "CRIME SHOPPERS"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Brand tagline",
+      "default": "See Something? Buy Something! Your one-stop shop for true crime obsessives, justice seekers, and cold case connoisseurs."
+    },
+    {
+      "type": "header",
+      "content": "Social Media Links"
+    },
+    {
+      "type": "url",
+      "id": "social_twitter",
+      "label": "Twitter / X URL"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}

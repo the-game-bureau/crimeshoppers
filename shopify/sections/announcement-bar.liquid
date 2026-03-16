@@ -1,0 +1,47 @@
+{%- if section.settings.enable -%}
+<div class="cs-announcement-bar" role="banner" aria-label="Announcement">
+  <div class="cs-announcement-bar-inner">
+    {%- if section.settings.text != blank -%}
+      {%- if section.settings.link != blank -%}
+        <a href="{{ section.settings.link }}">{{ section.settings.text }}</a>
+      {%- else -%}
+        <span>{{ section.settings.text }}</span>
+      {%- endif -%}
+    {%- else -%}
+      <span>🚨 Free Shipping on Orders Over $50 — <a href="{{ routes.collections_url }}">Shop Now →</a></span>
+    {%- endif -%}
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Announcement text",
+      "default": "🚨 Free Shipping on Orders Over $50 — Shop Now →",
+      "info": "Leave blank to use the default message"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Announcement link",
+      "info": "Optional. Makes the text a clickable link."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}

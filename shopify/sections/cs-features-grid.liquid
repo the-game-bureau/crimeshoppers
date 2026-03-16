@@ -1,0 +1,129 @@
+<section class="cs-features-section">
+  <div class="cs-container">
+
+    <!-- Section Header -->
+    {%- if section.settings.heading != blank or section.settings.label != blank -%}
+      <div class="cs-section-header cs-animate">
+        {%- if section.settings.label != blank -%}
+          <span class="cs-section-label">{{ section.settings.label }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.subtext != blank -%}
+          <p>{{ section.settings.subtext }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <!-- Feature Cards Grid -->
+    <div class="cs-features-grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'feature' -%}
+            <div class="cs-feature-card cs-animate cs-animate-delay-{{ forloop.index }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <span class="cs-feature-icon" aria-hidden="true">{{ block.settings.icon }}</span>
+              {%- endif -%}
+              {%- if block.settings.heading != blank -%}
+                <h3 class="cs-feature-title">{{ block.settings.heading }}</h3>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <p class="cs-feature-body">{{ block.settings.body }}</p>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CS Features Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Eyebrow label",
+      "default": "⭐ Why Choose Us"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "WHY CRIME SHOPPERS?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Section description",
+      "default": "We take merch as seriously as a crime scene investigation."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "🚚"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Feature heading",
+          "default": "Free Shipping Over $50"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Feature description",
+          "default": "No getaway car needed. Orders over $50 ship free anywhere in the US."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Features Grid",
+      "settings": {
+        "label": "⭐ Why Choose Us",
+        "heading": "WHY CRIME SHOPPERS?",
+        "subtext": "We take merch as seriously as a crime scene investigation."
+      },
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🚚",
+            "heading": "Free Shipping Over $50",
+            "body": "No getaway car needed. Orders over $50 ship free. No minimum detective badge required."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🖨️",
+            "heading": "Print-on-Demand Quality",
+            "body": "Every item printed to order. No warehouses full of evidence. Just fresh, high-quality prints."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🌍",
+            "heading": "Ships Worldwide",
+            "body": "We deliver to 150+ countries. True crime obsession knows no borders, and neither do we."
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

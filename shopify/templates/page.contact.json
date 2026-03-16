@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "page_hero": {
+      "type": "cs-hero",
+      "settings": {
+        "eyebrow": "📬 Get In Touch",
+        "heading_line1": "CONTACT THE",
+        "heading_line2": "DEPARTMENT",
+        "subtext": "Got a tip? A complaint? A cold case you need solved? Our team is standing by.",
+        "cta_text": "",
+        "cta_url": "",
+        "cta2_text": "",
+        "cta2_url": "",
+        "stat1_value": "",
+        "stat1_label": "",
+        "stat2_value": "",
+        "stat2_label": "",
+        "stat3_value": "",
+        "stat3_label": ""
+      }
+    },
+    "crime_tape": {
+      "type": "cs-crime-tape",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "newsletter": {
+      "type": "cs-newsletter",
+      "settings": {
+        "label": "📬 Dispatch",
+        "heading": "STAY OUT OF JAIL...",
+        "body": "...but stay in the loop. Get early access to new drops, exclusive deals, and cold case discounts.",
+        "placeholder": "your@email.com",
+        "button_text": "Subscribe",
+        "success_message": "✅ You're in! Check your inbox... and your alibi.",
+        "disclaimer": "No spam. Unsubscribe anytime."
+      }
+    }
+  },
+  "order": ["page_hero", "crime_tape", "main", "newsletter"]
+}

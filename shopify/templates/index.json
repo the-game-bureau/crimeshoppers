@@ -1,0 +1,100 @@
+{
+  "sections": {
+    "hero": {
+      "type": "cs-hero",
+      "settings": {
+        "eyebrow": "🚨 True Crime Merchandise",
+        "heading_line1": "SEE SOMETHING?",
+        "heading_line2": "BUY SOMETHING!",
+        "subtext": "The only shop where your true crime obsession finally pays off. Premium gear for real crime fans.",
+        "cta_text": "🔎 Browse the Evidence",
+        "cta_url": "/collections/all",
+        "cta2_text": "Our Story →",
+        "cta2_url": "/pages/about",
+        "stat1_value": "10K+",
+        "stat1_label": "Suspects Served",
+        "stat2_value": "500+",
+        "stat2_label": "Products in Evidence",
+        "stat3_value": "150+",
+        "stat3_label": "Countries Reached"
+      }
+    },
+    "crime_tape_1": {
+      "type": "cs-crime-tape",
+      "settings": {}
+    },
+    "featured": {
+      "type": "cs-featured-collection",
+      "settings": {
+        "products_to_show": 4,
+        "label": "🔍 Evidence Locker",
+        "heading": "FEATURED SUSPECTS",
+        "subtext": "Our most-wanted merchandise. High quality prints on every item — because the evidence has to be rock solid."
+      }
+    },
+    "crime_tape_2": {
+      "type": "cs-crime-tape",
+      "settings": {}
+    },
+    "features": {
+      "type": "cs-features-grid",
+      "settings": {
+        "label": "⭐ Why Choose Us",
+        "heading": "WHY CRIME SHOPPERS?",
+        "subtext": "We take merch as seriously as a crime scene investigation."
+      },
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "🚚",
+            "heading": "Free Shipping Over $50",
+            "body": "No getaway car needed. Orders over $50 ship free anywhere in the US. No minimum detective badge required."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "🖨️",
+            "heading": "Print-on-Demand Quality",
+            "body": "Every item printed to order. No warehouses full of evidence. Just fresh, high-quality prints on premium materials."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "🌍",
+            "heading": "Ships Worldwide",
+            "body": "We deliver to 150+ countries. True crime obsession knows no borders, and neither do our shipping routes."
+          }
+        }
+      },
+      "blocks_order": ["feature_1", "feature_2", "feature_3"]
+    },
+    "crime_tape_3": {
+      "type": "cs-crime-tape",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "cs-newsletter",
+      "settings": {
+        "label": "📬 Dispatch",
+        "heading": "STAY OUT OF JAIL...",
+        "body": "...but stay in the loop. Get early access to new drops, exclusive deals, and cold case discounts.",
+        "placeholder": "your@email.com",
+        "button_text": "Subscribe",
+        "success_message": "✅ You're in! Check your inbox... and your alibi.",
+        "disclaimer": "No spam. Unsubscribe anytime. We promise not to sell your data to the feds."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "crime_tape_1",
+    "featured",
+    "crime_tape_2",
+    "features",
+    "crime_tape_3",
+    "newsletter"
+  ]
+}

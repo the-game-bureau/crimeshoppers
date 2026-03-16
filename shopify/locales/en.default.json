@@ -1,0 +1,288 @@
+{
+  "general": {
+    "password_page": {
+      "login_form_heading": "Enter using password",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password",
+      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+    },
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "404": {
+      "title": "Page Not Found",
+      "subtext": "We looked everywhere — this page is missing. Maybe it's evidence.",
+      "link": "Continue shopping"
+    },
+    "continue_shopping": "Continue shopping"
+  },
+  "header": {
+    "logo_text": "CRIME SHOPPERS",
+    "cart": "Cart",
+    "cart_count": {
+      "one": "{{ count }} item",
+      "other": "{{ count }} items"
+    },
+    "menu": "Menu",
+    "close_menu": "Close menu",
+    "search": "Search",
+    "close_search": "Close search"
+  },
+  "footer": {
+    "brand_name": "CRIME SHOPPERS",
+    "tagline": "See Something? Buy Something!",
+    "copyright": "All rights reserved.",
+    "shop": "Shop",
+    "help": "Help",
+    "company": "Company"
+  },
+  "announcement_bar": {
+    "default_text": "🚨 Free Shipping on Orders Over $50 — Shop Now →"
+  },
+  "hero": {
+    "eyebrow": "True Crime Merchandise",
+    "heading_line1": "SEE SOMETHING?",
+    "heading_line2": "BUY SOMETHING!",
+    "subtext": "The only shop where your true crime obsession finally pays off.",
+    "cta_primary": "Browse the Evidence",
+    "cta_secondary": "Our Story"
+  },
+  "products": {
+    "product": {
+      "title": "Product",
+      "vendor": "Vendor",
+      "sku": "SKU",
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "on_sale": "Sale",
+      "save": "Save {{ amount }}",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "unit_price": "Unit price",
+      "per": "per",
+      "quantity": "Quantity",
+      "description": "Description",
+      "view": "View product",
+      "quick_view": "Quick View",
+      "from": "From",
+      "choose_options": "Choose options",
+      "preorder": "Pre-order",
+      "pickup_availability": "Check availability",
+      "pickup_available": "Pick up available",
+      "pickup_unavailable": "Pickup unavailable",
+      "number_of_variants_with_count": {
+        "one": "{{ count }} variant",
+        "other": "{{ count }} variants"
+      }
+    },
+    "facets": {
+      "filter_button": "Filter",
+      "clear_filter": "Clear",
+      "sort_button": "Sort",
+      "sort_by_label": "Sort by:",
+      "filter_label": "Filter",
+      "filter_by_label": "Filter by:",
+      "clear_all": "Clear all",
+      "product_count": {
+        "one": "{{ product_count }} product",
+        "other": "{{ product_count }} products"
+      },
+      "from_prefix": "From",
+      "to": "To",
+      "sort": {
+        "title": "Sort",
+        "featured": "Featured",
+        "best_selling": "Best selling",
+        "alphabetically": "Alphabetically, A-Z",
+        "alphabetically_reversed": "Alphabetically, Z-A",
+        "price_ascending": "Price, low to high",
+        "price_descending": "Price, high to low",
+        "date": "Date, new to old",
+        "date_reversed": "Date, old to new"
+      }
+    },
+    "grid": {
+      "title": "Products",
+      "from": "From {{ price }}"
+    }
+  },
+  "collections": {
+    "title": "Collections",
+    "all_products_title": "All Products"
+  },
+  "cart": {
+    "title": "Your Evidence",
+    "general": {
+      "empty": "Your cart is empty. No evidence yet.",
+      "close_cart": "Close cart",
+      "subtotal": "Subtotal",
+      "taxes_note": "Taxes and shipping calculated at checkout",
+      "checkout": "Secure Checkout",
+      "view_cart": "View Cart",
+      "update": "Update cart",
+      "remove": "Remove",
+      "increase_quantity": "Increase quantity for {{ product }}",
+      "decrease_quantity": "Decrease quantity for {{ product }}",
+      "change": "Change",
+      "add": "Add",
+      "note": "Order note",
+      "remove_discount_code": "Remove discount code {{ title }}",
+      "discount": "Discount",
+      "promo_code": "Promo code",
+      "apply": "Apply"
+    },
+    "items": {
+      "price": "Price",
+      "total": "Total",
+      "quantity": "Quantity",
+      "product": "Product"
+    }
+  },
+  "newsletter": {
+    "heading": "STAY OUT OF JAIL...",
+    "subheading": "...but stay in the loop.",
+    "label": "Dispatch",
+    "email_label": "Email",
+    "email_placeholder": "your@email.com",
+    "submit": "Subscribe",
+    "success": "✅ You're in! Check your inbox... and your alibi.",
+    "disclaimer": "No spam. Unsubscribe anytime."
+  },
+  "sections": {
+    "featured_collection": {
+      "title": "FEATURED SUSPECTS",
+      "view_all": "View All Products"
+    },
+    "features": {
+      "title": "WHY CRIME SHOPPERS?"
+    },
+    "hero": {
+      "overlay_button": "Browse Products"
+    }
+  },
+  "blogs": {
+    "article": {
+      "back_to_blog": "Back to {{ title }}",
+      "by_author": "By {{ author }}",
+      "posted_in": "Posted in {{ taglist }}",
+      "read_more": "Read more",
+      "share_on_facebook": "Share on Facebook",
+      "share_on_twitter": "Share on Twitter",
+      "share_on_pinterest": "Share on Pinterest",
+      "email": "Email",
+      "new_comment": "Leave a comment",
+      "author": "Author",
+      "date": "Date",
+      "comments": {
+        "title": "Comments",
+        "moderated": "Please note, comments need to be approved before they are published.",
+        "no_comments": "Be the first to comment",
+        "form": {
+          "title": "Leave a comment",
+          "name": "Name",
+          "email": "Email",
+          "message": "Message",
+          "submit": "Post comment"
+        },
+        "success": "Comment submitted. Please check back once it's been approved."
+      }
+    },
+    "comments": {
+      "title": "Comments",
+      "no_comments": "No comments yet"
+    }
+  },
+  "account": {
+    "login": {
+      "title": "Log in",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Log in",
+      "forgot_password": "Forgot your password?",
+      "create_account": "Create account",
+      "or_create_account": "Or create a new account",
+      "guest_title": "Continue as guest",
+      "guest_subtitle": "You don't need an account to make a purchase."
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create",
+      "login_link": "Already have an account? Log in"
+    },
+    "reset_password": {
+      "title": "Reset your password",
+      "subtext": "We will send you an email to reset your password.",
+      "email": "Email",
+      "submit": "Submit",
+      "cancel": "Cancel"
+    },
+    "orders": {
+      "title": "Order history",
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfillment status",
+      "total": "Total",
+      "none": "You haven't placed any orders yet."
+    },
+    "addresses": {
+      "title": "Addresses",
+      "default": "Default",
+      "add_new": "Add a new address",
+      "edit_address": "Edit address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "address1": "Address",
+      "address2": "Apartment, suite, etc.",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal / Zip code",
+      "phone": "Phone",
+      "set_default": "Set as default address",
+      "add": "Add address",
+      "update": "Update address",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you wish to delete this address?"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "message": "Message",
+      "submit": "Send Message",
+      "post_success": "Thanks for contacting us. We'll be in touch shortly.",
+      "error": "There was an error sending your message. Please try again."
+    }
+  },
+  "layout": {
+    "skip_to_content": "Skip to content",
+    "footer": {
+      "country_region_label": "Country/region"
+    },
+    "password_page": {
+      "opening_soon": "Opening soon"
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "open_in_new_window": "Opens in a new window",
+    "refresh_page": "Refresh page",
+    "close": "Close",
+    "loading": "Loading"
+  }
+}

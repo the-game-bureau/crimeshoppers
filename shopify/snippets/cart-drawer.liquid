@@ -1,0 +1,155 @@
+{% comment %}
+  Cart Drawer Snippet
+  Slide-in cart sidebar using Shopify AJAX cart API.
+  Rendered in theme.liquid before </body>.
+  Controlled by crime-shoppers.js CSCart object.
+{% endcomment %}
+
+<!-- Overlay -->
+<div class="cs-cart-overlay" id="cs-cart-overlay" aria-hidden="true"></div>
+
+<!-- Cart Sidebar -->
+<aside
+  class="cs-cart-sidebar"
+  id="cs-cart-sidebar"
+  aria-label="Shopping Cart"
+  aria-hidden="true"
+  role="dialog"
+>
+
+  <!-- Header -->
+  <div class="cs-cart-header">
+    <h2>🛒 Your Evidence</h2>
+    <button
+      class="cs-cart-close"
+      id="cs-cart-close"
+      aria-label="Close cart"
+    >
+      ✕
+    </button>
+  </div>
+
+  <!-- Items Container (populated by JS) -->
+  <div class="cs-cart-items" id="cs-cart-items">
+    {%- if cart.item_count > 0 -%}
+      {%- for item in cart.items -%}
+        <div class="cs-cart-item" data-key="{{ item.key }}">
+
+          <!-- Item Image -->
+          <div class="cs-cart-item-image">
+            {%- if item.image -%}
+              {{ item.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: item.title }}
+            {%- endif -%}
+          </div>
+
+          <!-- Item Info -->
+          <div class="cs-cart-item-info">
+            <div class="cs-cart-item-name">{{ item.product.title }}</div>
+            {%- if item.variant.title != 'Default Title' -%}
+              <div class="cs-cart-item-variant">{{ item.variant.title }}</div>
+            {%- endif -%}
+            <div class="cs-cart-item-price">{{ item.line_price | money }}</div>
+
+            <!-- Quantity Controls -->
+            <div class="cs-cart-qty">
+              <button
+                class="cs-qty-btn"
+                data-key="{{ item.key }}"
+                data-qty="{{ item.quantity | minus: 1 }}"
+                aria-label="Decrease quantity"
+              >−</button>
+              <span class="cs-qty-value">{{ item.quantity }}</span>
+              <button
+                class="cs-qty-btn"
+                data-key="{{ item.key }}"
+                data-qty="{{ item.quantity | plus: 1 }}"
+                aria-label="Increase quantity"
+              >+</button>
+            </div>
+          </div>
+
+          <!-- Remove Button -->
+          <button
+            class="cs-cart-item-remove"
+            data-key="{{ item.key }}"
+            aria-label="Remove {{ item.title | escape }} from cart"
+          >✕</button>
+
+        </div>
+      {%- endfor -%}
+    {%- else -%}
+      <div class="cs-cart-empty">
+        <div class="cs-cart-empty-icon">🛒</div>
+        <p>Your cart is empty.</p>
+        <p style="font-size:0.85rem;color:var(--color-foreground-muted);">No evidence yet.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn-cs-secondary btn-sm" style="margin-top:16px;">
+          Browse Products
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <!-- Footer: Total + Checkout -->
+  {%- if cart.item_count > 0 -%}
+    <div class="cs-cart-footer">
+
+      <div class="cs-cart-subtotal">
+        <span class="cs-cart-subtotal-label">Subtotal</span>
+        <span class="cs-cart-subtotal-value" id="cs-cart-total">
+          {{ cart.total_price | money }}
+        </span>
+      </div>
+
+      <p class="cs-cart-note">Shipping &amp; taxes calculated at checkout</p>
+
+      <div class="cs-cart-actions">
+        <a href="{{ routes.checkout_url }}" class="btn-cs-primary">
+          🔒 Secure Checkout
+        </a>
+        <a href="{{ routes.cart_url }}" class="btn-cs-secondary">
+          View Full Cart
+        </a>
+      </div>
+
+    </div>
+  {%- else -%}
+    <div class="cs-cart-footer" style="border-top:none;"></div>
+  {%- endif -%}
+
+</aside>
+
+<!-- Cart Qty + Remove handlers (server-rendered fallback, also handled in JS) -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Wire up qty buttons in the server-rendered cart
+    var cartItems = document.getElementById('cs-cart-items');
+    if (!cartItems) return;
+
+    cartItems.addEventListener('click', function (e) {
+      var btn = e.target.closest('.cs-qty-btn, .cs-cart-item-remove');
+      if (!btn) return;
+
+      var key = btn.dataset.key;
+      if (!key) return;
+
+      var qty = btn.classList.contains('cs-cart-item-remove')
+        ? 0
+        : parseInt(btn.dataset.qty || '0', 10);
+
+      fetch('/cart/change.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: key, quantity: qty }),
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (cart) {
+          if (window.CSCart) {
+            window.CSCart.render(cart);
+          } else {
+            // fallback: reload
+            window.location.reload();
+          }
+        });
+    });
+  });
+</script>

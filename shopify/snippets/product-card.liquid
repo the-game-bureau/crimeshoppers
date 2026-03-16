@@ -1,0 +1,93 @@
+{% comment %}
+  Product Card Snippet
+  Usage: {% render 'product-card', product: product %}
+  Parameters:
+    product (required) — Shopify product object
+{% endcomment %}
+
+<div class="cs-product-card" data-category="{{ product.type | handleize }}">
+
+  <!-- Best Seller Badge -->
+  {%- if product.tags contains 'best-seller' or product.tags contains 'bestseller' or product.tags contains 'best seller' -%}
+    <div class="cs-best-seller-badge">BEST SELLER</div>
+  {%- endif -%}
+
+  <!-- WANTED Ribbon for featured/new items -->
+  {%- if product.tags contains 'wanted' or product.tags contains 'featured' -%}
+    <div class="cs-wanted-badge">WANTED</div>
+  {%- endif -%}
+
+  <!-- Product Image + Overlay -->
+  <a
+    href="{{ product.url }}"
+    class="cs-product-image-link"
+    aria-label="{{ product.title }}"
+  >
+    {%- if product.featured_image -%}
+      {{
+        product.featured_image
+        | image_url: width: 500
+        | image_tag:
+          loading: 'lazy',
+          alt: product.featured_image.alt | default: product.title,
+          class: 'cs-product-img'
+      }}
+    {%- else -%}
+      <div class="cs-product-image-placeholder">
+        <span>🔍 {{ product.title | truncate: 22 }}</span>
+      </div>
+    {%- endif -%}
+
+    <!-- Hover Overlay (Quick View) -->
+    <div class="cs-product-overlay" aria-hidden="true">
+      <span class="btn-cs-primary btn-sm">Quick View</span>
+    </div>
+  </a>
+
+  <!-- Product Info -->
+  <div class="cs-product-info">
+
+    {%- if product.type != blank -%}
+      <span class="cs-product-category">{{ product.type }}</span>
+    {%- endif -%}
+
+    <h3 class="cs-product-name">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+
+    <!-- Price + Add to Cart -->
+    <div class="cs-product-footer">
+      <div>
+        <span class="cs-product-price">
+          {%- if product.price_varies -%}
+            From {{ product.price_min | money }}
+          {%- else -%}
+            {{ product.price | money }}
+          {%- endif -%}
+        </span>
+        {%- if product.compare_at_price > product.price -%}
+          <span class="cs-product-price-compare">{{ product.compare_at_price | money }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- if product.available -%}
+        <form method="post" action="/cart/add" class="cs-add-to-cart-form">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button
+            type="submit"
+            class="btn-cs-add-cart"
+            aria-label="Add {{ product.title | escape }} to cart"
+          >
+            Add to Cart
+          </button>
+        </form>
+      {%- else -%}
+        <span class="btn-cs-add-cart" style="opacity:0.5;cursor:not-allowed;border-color:var(--color-border);color:var(--color-foreground-muted);">
+          Sold Out
+        </span>
+      {%- endif -%}
+    </div>
+
+  </div>
+</div>

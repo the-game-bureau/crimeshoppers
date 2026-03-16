@@ -1,0 +1,35 @@
+{% comment %}
+  Horizon Section Group — Header
+  -------------------------------------------------------
+  Shopify Horizon uses "section groups" instead of
+  individual {% section %} calls in theme.liquid.
+  This file defines the header group that contains the
+  announcement bar and main header sections.
+
+  Reference: https://shopify.dev/docs/themes/architecture/section-groups
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Header group",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "🚨 Free Shipping on Orders Over $50 — Shop Now →",
+        "enable": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_text": "CRIME SHOPPERS",
+        "menu": "main-menu",
+        "show_cart_count": true
+      }
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}
+{% endschema %}

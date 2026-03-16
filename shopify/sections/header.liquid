@@ -1,0 +1,122 @@
+<header class="cs-navbar" role="banner">
+  <div class="cs-navbar-inner">
+
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="cs-logo" aria-label="{{ section.settings.logo_text | default: 'CRIME SHOPPERS' }} - Home">
+      <span class="cs-logo-icon">🔍</span>{{ section.settings.logo_text | default: 'CRIME SHOPPERS' }}
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="cs-nav" role="navigation" aria-label="Main navigation">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in linklists[section.settings.menu].links -%}
+          <a
+            href="{{ link.url }}"
+            class="cs-nav-link{% if link.active %} active{% endif %}"
+            {% if link.current %}aria-current="page"{% endif %}
+          >
+            {{ link.title }}
+          </a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="{{ routes.root_url }}" class="cs-nav-link">Home</a>
+        <a href="{{ routes.collections_url }}" class="cs-nav-link">Collections</a>
+        <a href="/pages/about" class="cs-nav-link">About</a>
+        <a href="/pages/contact" class="cs-nav-link">Contact</a>
+      {%- endif -%}
+    </nav>
+
+    <!-- Right-side actions -->
+    <div style="display:flex;align-items:center;gap:12px;">
+
+      <!-- Cart Button -->
+      <button
+        class="cs-cart-btn"
+        data-open-cart
+        aria-label="Open cart{% if section.settings.show_cart_count %}, {{ cart.item_count }} items{% endif %}"
+      >
+        🛒
+        {%- if section.settings.show_cart_count -%}
+          <span
+            class="cs-cart-count"
+            style="{% unless cart.item_count > 0 %}display:none;{% endunless %}"
+          >
+            {{ cart.item_count }}
+          </span>
+        {%- endif -%}
+      </button>
+
+      <!-- Hamburger (mobile) -->
+      <button
+        class="cs-hamburger"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        aria-controls="cs-mobile-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav
+    class="cs-mobile-nav"
+    id="cs-mobile-nav"
+    role="navigation"
+    aria-label="Mobile navigation"
+  >
+    {%- if section.settings.menu != blank -%}
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a
+          href="{{ link.url }}"
+          class="cs-mobile-nav-link"
+          {% if link.current %}aria-current="page"{% endif %}
+        >
+          {{ link.title }}
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      <a href="{{ routes.root_url }}" class="cs-mobile-nav-link">Home</a>
+      <a href="{{ routes.collections_url }}" class="cs-mobile-nav-link">Collections</a>
+      <a href="/pages/about" class="cs-mobile-nav-link">About</a>
+      <a href="/pages/contact" class="cs-mobile-nav-link">Contact</a>
+    {%- endif -%}
+  </nav>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "section-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "CRIME SHOPPERS",
+      "info": "Text shown as the store logo in the header"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu",
+      "info": "Select the navigation menu to display"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart_count",
+      "label": "Show cart item count",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}

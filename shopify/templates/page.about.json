@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "page_hero": {
+      "type": "cs-hero",
+      "settings": {
+        "eyebrow": "🔍 Our Story",
+        "heading_line1": "ABOUT CRIME",
+        "heading_line2": "SHOPPERS",
+        "subtext": "Born from a true crime obsession and a need for better merch. We're the evidence you've been looking for.",
+        "cta_text": "🔎 Shop Now",
+        "cta_url": "/collections/all",
+        "cta2_text": "",
+        "cta2_url": "",
+        "stat1_value": "",
+        "stat1_label": "",
+        "stat2_value": "",
+        "stat2_label": "",
+        "stat3_value": "",
+        "stat3_label": ""
+      }
+    },
+    "crime_tape": {
+      "type": "cs-crime-tape",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": ["page_hero", "crime_tape", "main"]
+}

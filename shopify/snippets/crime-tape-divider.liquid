@@ -1,0 +1,13 @@
+{% comment %}
+  Crime Tape Divider Snippet
+  Inline use: {% render 'crime-tape-divider' %}
+  Optional parameter: size — 'sm' (12px, default) or 'lg' (24px)
+{% endcomment %}
+
+{%- assign tape_size = size | default: 'sm' -%}
+
+{%- if tape_size == 'lg' -%}
+  <div class="crime-tape crime-tape-lg" aria-hidden="true"></div>
+{%- else -%}
+  <div class="crime-tape" aria-hidden="true"></div>
+{%- endif -%}

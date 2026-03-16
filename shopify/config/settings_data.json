@@ -1,0 +1,59 @@
+{
+  "current": {
+    "colors_background_1": "#0d0d0d",
+    "colors_background_2": "#1a1a1a",
+    "colors_background_card": "#222222",
+    "colors_text": "#f0f0f0",
+    "colors_text_secondary": "#aaaaaa",
+    "colors_text_muted": "#666666",
+    "colors_accent_1": "#FFD700",
+    "colors_accent_2": "#CC0000",
+    "colors_solid_button_labels": "#0d0d0d",
+    "colors_outline_button_labels": "#FFD700",
+    "colors_border": "#333333",
+
+    "colors_scheme_1_background_1": "#0d0d0d",
+    "colors_scheme_1_background_2": "#1a1a1a",
+    "colors_scheme_1_text": "#f0f0f0",
+    "colors_scheme_1_accent_1": "#FFD700",
+    "colors_scheme_1_accent_2": "#CC0000",
+    "colors_scheme_1_solid_button_labels": "#0d0d0d",
+    "colors_scheme_1_outline_button_labels": "#FFD700",
+
+    "colors_scheme_2_background_1": "#1a1a1a",
+    "colors_scheme_2_background_2": "#222222",
+    "colors_scheme_2_text": "#f0f0f0",
+    "colors_scheme_2_accent_1": "#FFD700",
+    "colors_scheme_2_accent_2": "#CC0000",
+    "colors_scheme_2_solid_button_labels": "#0d0d0d",
+    "colors_scheme_2_outline_button_labels": "#FFD700",
+
+    "colors_scheme_3_background_1": "#FFD700",
+    "colors_scheme_3_background_2": "#e6c200",
+    "colors_scheme_3_text": "#0d0d0d",
+    "colors_scheme_3_accent_1": "#0d0d0d",
+    "colors_scheme_3_accent_2": "#CC0000",
+    "colors_scheme_3_solid_button_labels": "#FFD700",
+    "colors_scheme_3_outline_button_labels": "#0d0d0d",
+
+    "type_header_font": "bebas_neue_n4",
+    "type_body_font": "inter_n4",
+    "heading_scale": 120,
+    "body_scale": 100,
+
+    "enable_sticky_header": true,
+    "page_width": 1200,
+    "spacing_sections": 0,
+
+    "cart_type": "drawer",
+    "show_cart_note": false,
+    "predictive_search_enabled": true,
+    "currency_code_enabled": false,
+
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_tiktok_link": "",
+    "social_youtube_link": ""
+  }
+}

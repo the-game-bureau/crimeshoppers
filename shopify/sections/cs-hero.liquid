@@ -1,0 +1,192 @@
+<section class="cs-hero" id="hero">
+  <div class="cs-container">
+    <div class="cs-hero-content cs-animate">
+
+      <!-- Eyebrow label -->
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="cs-hero-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+
+      <!-- Heading -->
+      <h1 class="cs-hero-heading">
+        {{ section.settings.heading_line1 | default: 'SEE SOMETHING?' }}
+        <span>{{ section.settings.heading_line2 | default: 'BUY SOMETHING!' }}</span>
+      </h1>
+
+      <!-- Sub text -->
+      {%- if section.settings.subtext != blank -%}
+        <p class="cs-hero-sub">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+
+      <!-- CTA Buttons -->
+      <div class="cs-hero-actions">
+        {%- if section.settings.cta_text != blank -%}
+          <a
+            href="{{ section.settings.cta_url | default: routes.collections_url }}"
+            class="btn-cs-primary btn-lg"
+          >
+            {{ section.settings.cta_text }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta2_text != blank -%}
+          <a
+            href="{{ section.settings.cta2_url | default: '/pages/about' }}"
+            class="btn-cs-secondary btn-lg"
+          >
+            {{ section.settings.cta2_text }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      <!-- Stats Bar -->
+      {%- if section.settings.stat1_value != blank or section.settings.stat2_value != blank or section.settings.stat3_value != blank -%}
+        <div class="cs-hero-stats">
+          {%- if section.settings.stat1_value != blank -%}
+            <div class="cs-hero-stat cs-animate cs-animate-delay-1">
+              <strong>{{ section.settings.stat1_value }}</strong>
+              <span>{{ section.settings.stat1_label }}</span>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.stat2_value != blank -%}
+            <div class="cs-hero-stat cs-animate cs-animate-delay-2">
+              <strong>{{ section.settings.stat2_value }}</strong>
+              <span>{{ section.settings.stat2_label }}</span>
+            </div>
+          {%- endif -%}
+          {%- if section.settings.stat3_value != blank -%}
+            <div class="cs-hero-stat cs-animate cs-animate-delay-3">
+              <strong>{{ section.settings.stat3_value }}</strong>
+              <span>{{ section.settings.stat3_label }}</span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CS Hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Eyebrow & Heading"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "🚨 True Crime Merchandise"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading line 1",
+      "default": "SEE SOMETHING?"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading line 2 (accent color)",
+      "default": "BUY SOMETHING!"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext / description",
+      "default": "The only shop where your true crime obsession finally pays off. Premium gear for real crime fans."
+    },
+    {
+      "type": "header",
+      "content": "Primary Button"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "🔎 Browse the Evidence"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Button"
+    },
+    {
+      "type": "text",
+      "id": "cta2_text",
+      "label": "Secondary button text",
+      "default": "Our Story →"
+    },
+    {
+      "type": "url",
+      "id": "cta2_url",
+      "label": "Secondary button URL"
+    },
+    {
+      "type": "header",
+      "content": "Stats Bar"
+    },
+    {
+      "type": "text",
+      "id": "stat1_value",
+      "label": "Stat 1 value",
+      "default": "10K+"
+    },
+    {
+      "type": "text",
+      "id": "stat1_label",
+      "label": "Stat 1 label",
+      "default": "Suspects Served"
+    },
+    {
+      "type": "text",
+      "id": "stat2_value",
+      "label": "Stat 2 value",
+      "default": "500+"
+    },
+    {
+      "type": "text",
+      "id": "stat2_label",
+      "label": "Stat 2 label",
+      "default": "Products in Evidence"
+    },
+    {
+      "type": "text",
+      "id": "stat3_value",
+      "label": "Stat 3 value",
+      "default": "150+"
+    },
+    {
+      "type": "text",
+      "id": "stat3_label",
+      "label": "Stat 3 label",
+      "default": "Countries Reached"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CS Hero",
+      "settings": {
+        "eyebrow": "🚨 True Crime Merchandise",
+        "heading_line1": "SEE SOMETHING?",
+        "heading_line2": "BUY SOMETHING!",
+        "subtext": "The only shop where your true crime obsession finally pays off. Premium gear for real crime fans.",
+        "cta_text": "🔎 Browse the Evidence",
+        "cta2_text": "Our Story →",
+        "stat1_value": "10K+",
+        "stat1_label": "Suspects Served",
+        "stat2_value": "500+",
+        "stat2_label": "Products in Evidence",
+        "stat3_value": "150+",
+        "stat3_label": "Countries Reached"
+      }
+    }
+  ]
+}
+{% endschema %}

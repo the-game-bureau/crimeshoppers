@@ -1,0 +1,278 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Crime Shoppers",
+    "theme_version": "1.0.0",
+    "theme_author": "Crime Shoppers",
+    "theme_documentation_url": "https://crimeshoppers.com",
+    "theme_support_url": "https://crimeshoppers.com/pages/contact",
+    "theme_parent": "Horizon"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Background Colors"
+      },
+      {
+        "type": "color",
+        "id": "colors_background_1",
+        "label": "Background 1 (primary)",
+        "default": "#0d0d0d",
+        "info": "Main background color"
+      },
+      {
+        "type": "color",
+        "id": "colors_background_2",
+        "label": "Background 2 (secondary)",
+        "default": "#1a1a1a",
+        "info": "Used for sections, footer, cards"
+      },
+      {
+        "type": "color",
+        "id": "colors_background_card",
+        "label": "Card background",
+        "default": "#222222",
+        "info": "Used for product cards, feature cards"
+      },
+      {
+        "type": "header",
+        "content": "Text Colors"
+      },
+      {
+        "type": "color",
+        "id": "colors_text",
+        "label": "Primary text",
+        "default": "#f0f0f0"
+      },
+      {
+        "type": "color",
+        "id": "colors_text_secondary",
+        "label": "Secondary text",
+        "default": "#aaaaaa"
+      },
+      {
+        "type": "color",
+        "id": "colors_text_muted",
+        "label": "Muted text",
+        "default": "#666666"
+      },
+      {
+        "type": "header",
+        "content": "Accent Colors"
+      },
+      {
+        "type": "color",
+        "id": "colors_accent_1",
+        "label": "Accent 1 (yellow)",
+        "default": "#FFD700",
+        "info": "Primary accent color — buttons, prices, highlights"
+      },
+      {
+        "type": "color",
+        "id": "colors_accent_2",
+        "label": "Accent 2 (red)",
+        "default": "#CC0000",
+        "info": "Secondary accent color — badges, sale labels"
+      },
+      {
+        "type": "header",
+        "content": "Button Colors"
+      },
+      {
+        "type": "color",
+        "id": "colors_solid_button_labels",
+        "label": "Solid button text",
+        "default": "#0d0d0d",
+        "info": "Text color on yellow buttons"
+      },
+      {
+        "type": "color",
+        "id": "colors_outline_button_labels",
+        "label": "Outline button text",
+        "default": "#FFD700"
+      },
+      {
+        "type": "header",
+        "content": "Border"
+      },
+      {
+        "type": "color",
+        "id": "colors_border",
+        "label": "Border color",
+        "default": "#333333"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Heading font",
+        "default": "assistant_n4",
+        "info": "Bebas Neue is loaded via Google Fonts in theme.liquid and takes priority. This picker sets the Horizon fallback font."
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "label": "Heading size scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "default": 120
+      },
+      {
+        "type": "header",
+        "content": "Body"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body font",
+        "default": "assistant_n4",
+        "info": "Inter is loaded via Google Fonts in theme.liquid and takes priority. This picker sets the Horizon fallback font."
+      },
+      {
+        "type": "range",
+        "id": "body_scale",
+        "label": "Body size scale",
+        "min": 100,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_sticky_header",
+        "label": "Enable sticky header",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "page_width",
+        "label": "Max page width",
+        "min": 1000,
+        "max": 1600,
+        "step": 100,
+        "unit": "px",
+        "default": 1200
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections",
+        "label": "Section vertical spacing",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 0
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Displayed in browser tabs. 32x32px .ico or .png recommended."
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "url",
+        "id": "social_twitter_link",
+        "label": "Twitter / X"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "social_tiktok_link",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "social_youtube_link",
+        "label": "YouTube"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer (slide-in)"
+          },
+          {
+            "value": "page",
+            "label": "Cart page"
+          }
+        ],
+        "default": "drawer",
+        "info": "Crime Shoppers uses the drawer by default"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "Show cart note",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "predictive_search_enabled",
+        "label": "Enable predictive search",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Currency Format",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "currency_code_enabled",
+        "label": "Show currency codes",
+        "default": false,
+        "info": "E.g., show USD alongside $"
+      }
+    ]
+  }
+]
